@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C#进阶">
+<meta property="og:url" content="https://l-cxq-520.github.io/Test.github.io/2025/02/27/C-%E8%BF%9B%E9%98%B6/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale">
+<meta property="article:published_time" content="2025-02-27T01:15:50.000Z">
+<meta property="article:modified_time" content="2025-02-28T03:28:16.100Z">
+<meta property="article:author" content="CXQ">
+<meta name="twitter:card" content="summary">
+
+
+<title >C#进阶</title>
+
+<!-- Favicon -->
+
+    <link href='/Test.github.io/img/favicon.svg?v=2.1.0-beta.2' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/Test.github.io/img/favicon.svg?v=2.1.0-beta.2' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/Test.github.io/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/Test.github.io/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"l-cxq-520.github.io","author":"CXQ","root":"/Test.github.io/","typed_text":null,"theme_version":"2.1.0-beta.2","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/favicon.svg","icon16":"/img/favicon.svg","icon32":"/img/favicon.svg","appleTouchIcon":null,"webmanifest":null,"visibilitychange":false,"hidden":"/failure.ico","showText":"(/≧▽≦/)咦！又好了！","hideText":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","user_tag":"fas fa-user-alt","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"prismjs","theme":true,"copy":true,"lang":true,"title":"mac","height_limit":true}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2025-02-28 11:28:16"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/Test.github.io/css/index.css?v=2.1.0-beta.2" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+ 
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/Test.github.io/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/Test.github.io/img/favicon.svg">
+    
+    
+        <div class="trm-logo-text">
+            Async<span>Theme</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/Test.github.io/" target="">
+                    首页
+                </a>
+                
+                <ul>
+                    
+                    <li>
+                        <a  href="/Test.github.io/archives2/" target="">
+                            archives2
+                        </a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/Test.github.io/archives/" target="">
+                    归档
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/Test.github.io/categories/" target="">
+                    分类
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/Test.github.io/img/banner.png">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            NEWS LETTER
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            C#进阶
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/Test.github.io/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2025
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div id="page-sidebar" class="col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/Test.github.io/img/avatar.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        ThemeAsync
+    </h5>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<div class="trm-social">
+    
+        <a href="https://github.com" title="Github" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-github"></i>
+        </a>
+    
+</div>
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                Residence:
+            </div>
+            <div class="trm-label trm-label-light">
+                Mars
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div id="page-content" class="col-lg-8">
+                <div class="trm-content" id="trm-content">
+                    <div id="post-info" class="row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            02/27
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            09:15
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            CXQ
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <html><head></head><body><h1 id="C-进阶语法知识概述"><a href="#C-进阶语法知识概述" class="headerlink" title="C#进阶语法知识概述"></a>C#进阶语法知识概述</h1><h2 id="TOOD缺少"><a href="#TOOD缺少" class="headerlink" title="TOOD缺少"></a>TOOD缺少</h2><h1 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a><em><strong><font color="#BA55D3">ArrayList</font></strong></em></h1><ul>
+<li>简单数据结构类- <em><strong><font color="#BA55D3">ArrayList</font></strong></em></li>
+</ul>
+<h2 id="ArrayList-详解"><a href="#ArrayList-详解" class="headerlink" title="ArrayList 详解"></a><em><strong><font color="#BA55D3">ArrayList</font></strong></em> 详解</h2><p><strong><font size="4">ArrayList的本质：</font></strong></p>
+<ul>
+<li><em><strong><font color="#BA55D3">ArrayList</font></strong></em> 是一个C#为我们封装好的类，它的本质是一个 <em><strong><font color="#9400D3">object</font></strong></em> 类型的数组（可以存储任何类型的数组）。<em><strong><font color="#BA55D3">ArrayList</font></strong></em> 类帮助我们实现了很多方法，比如数组的增删查改。</li>
+</ul>
+<p><strong><font size="4">ArrayList的申明：</font></strong></p>
+<ul>
+<li>需要引用命名空间using System.Collections; 包含一些集合类。</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ArrayList arrayList = <span class="keyword">new</span> ArrayList();</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong><font size="4">ArrayList的增删查改和遍历：</font></strong></p>
+<p><strong><font size="4">增：</font></strong></p>
+<ul>
+<li>当前arrayList中的元素有：————长度为0.</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{ }————为空</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="3">Add方法：</font></strong></p>
+<ul>
+<li>直接在ArrayList末尾增加对应元素。</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">class</span> <span class="title">Test</span></span><br><span class="line">   {</span><br><span class="line"></span><br><span class="line">   }</span><br><span class="line"><span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">   {</span><br><span class="line">       <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">       {</span><br><span class="line"></span><br><span class="line">           arrayList.Add(<span class="number">1</span>);</span><br><span class="line">           arrayList.Add(<span class="string">"123"</span>);</span><br><span class="line">           arrayList.Add(<span class="literal">true</span>);</span><br><span class="line">           arrayList.Add(<span class="keyword">new</span> <span class="built_in">object</span>());</span><br><span class="line">           arrayList.Add(<span class="keyword">new</span> Test());</span><br><span class="line">           arrayList.Add(<span class="number">1</span>);</span><br><span class="line">           arrayList.Add(<span class="literal">true</span>);</span><br><span class="line">           Console.WriteLine(arrayList.Count);<span class="comment">//7</span></span><br><span class="line">       }</span><br><span class="line">   }</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="3">AddRange方法：</font></strong></p>
+<ul>
+<li>范围增加（批量增加，把另一个ArrayList容器里面的所有元素加到当前ArrayList容器后面）。</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">{</span><br><span class="line">   ArrayList arrayList2 = <span class="keyword">new</span> ArrayList();</span><br><span class="line">   arrayList2.Add(<span class="string">"我是arrayList2中的元素"</span>);</span><br><span class="line">   arrayList.AddRange(arrayList2); <span class="comment">// 会把arrayList2中所有元素拼接在arrayList后面</span></span><br><span class="line">   Console.WriteLine(arrayList.Count);<span class="comment">//8</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="3">Insert方法：</font></strong></p>
+<ul>
+<li>往指定位置插入元素。</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">{</span><br><span class="line">   arrayList.Insert(<span class="number">8</span>, <span class="string">"我是arrayList中索引为8的元素"</span>);</span><br><span class="line">   Console.WriteLine(arrayList[<span class="number">8</span>]); <span class="comment">// 我是arrayList中索引为8的元素</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>增完之后arrayList中的元素有：————长度为9</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{ <span class="number">1</span>, <span class="number">123</span>, True, System.Object, _1.ArrayLists.Test, <span class="number">1</span>, True, 我是arrayList2中的元素, 我是arrayList中索引为<span class="number">8</span>的元素 }</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong><font size="4">删：</font></strong></p>
+<ul>
+<li>当前arrayList中的元素有：————长度为9</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{ <span class="number">1</span>, <span class="number">123</span>, True, System.Object, _1.ArrayLists.Test, <span class="number">1</span>, True, 我是arrayList2中的元素, 我是arrayList中索引为<span class="number">8</span>的元素 }</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="3">Remove方法：</font></strong></p>
+<ul>
+<li>移除指定元素，从头找，找到即删，假如有多个只会删除第一个。</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">{</span><br><span class="line">   arrayList.Remove(<span class="number">1</span>); <span class="comment">// 删除指定元素1</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="3">RemoveAt方法：</font></strong></p>
+<ul>
+<li>移除指定位置的元素，索引从0开始。</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">{</span><br><span class="line">   arrayList.RemoveAt(<span class="number">2</span>); <span class="comment">// 删除索引为2的System.Object</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="3">Clear方法：</font></strong></p>
+<ul>
+<li>清空ArrayList中所有元素。</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">{</span><br><span class="line">   arrayList.Clear(); <span class="comment">// 为了后面测试方便，先注释</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>删完之后arrayList中的元素有：————长度为7</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">{ <span class="number">123</span>, True, _1.ArrayLists.Test, <span class="number">1</span>, True, 我是arrayList2中的元素, 我是arrayList中索引为<span class="number">8</span>的元素 }</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="4">查：</font></strong></p>
+<ul>
+<li>当前arrayList中的元素有：————长度为7</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{ <span class="number">123</span>, True, _1.ArrayLists.Test, <span class="number">1</span>, True, 我是arrayList2中的元素, 我是arrayList中索引为<span class="number">8</span>的元素 }</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="3">ArrayList[x]索引器get：</font></strong></p>
+<ul>
+<li>得到指定位置x的元素。</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">{</span><br><span class="line">   Console.WriteLine(arrayList[<span class="number">0</span>]); <span class="comment">// 123</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="3">Contains方法：</font></strong></p>
+<ul>
+<li>传入元素，查看元素是否存在。存在返回true，否则返回false。</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">{</span><br><span class="line">   <span class="keyword">if</span> (arrayList.Contains(<span class="string">"123"</span>))</span><br><span class="line">   {</span><br><span class="line">       Console.WriteLine(<span class="string">"存在123"</span>); <span class="comment">// 存在123</span></span><br><span class="line">   }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="3">IndexOf方法：</font></strong></p>
+<ul>
+<li>正向查找元素位置。</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">{</span><br><span class="line">   <span class="comment">// 找到的返回值是位置，找不到返回值是-1，假如有多个，只会返回从头数第一找到的元素的位置</span></span><br><span class="line">   <span class="built_in">int</span> index = arrayList.IndexOf(<span class="literal">true</span>);</span><br><span class="line">   Console.WriteLine(index); <span class="comment">// 1 找到从头数第一个true在索引1位置，假如有两个true只会返回第一个true所在的位置</span></span><br><span class="line">   Console.WriteLine(arrayList.IndexOf(<span class="literal">false</span>)); <span class="comment">// -1 找不到false这个元素</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="3">LastIndexOf方法：</font></strong></p>
+<ul>
+<li>反向查找元素位置。</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">{</span><br><span class="line">   <span class="comment">// 返回时从头开始的索引数</span></span><br><span class="line">   index = arrayList.LastIndexOf(<span class="literal">true</span>);</span><br><span class="line">   Console.WriteLine(index); <span class="comment">// 4 找到从末尾数第一个true在索引4位置，假如有两个true只会返回从末尾数第一个true所在的位置</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="4">改：</font></strong></p>
+<ul>
+<li>当前arrayList中的元素有：————长度为7</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{ <span class="number">123</span>, True, _1.ArrayLists.Test, <span class="number">1</span>, True, 我是arrayList2中的元素, 我是arrayList中索引为<span class="number">8</span>的元素 }</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="3">ArrayList[x] = “” 索引器set：</font></strong></p>
+<ul>
+<li>修改指定位置x的元素。</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">{</span><br><span class="line">   Console.WriteLine(arrayList[<span class="number">0</span>]); <span class="comment">// 123</span></span><br><span class="line">   arrayList[<span class="number">0</span>] = <span class="string">"999"</span>;</span><br><span class="line">   Console.WriteLine(arrayList[<span class="number">0</span>]); <span class="comment">// 999</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>改完之后arrayList中的元素有：————长度为7</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{ <span class="number">999</span>, True, _1.ArrayLists.Test, <span class="number">1</span>, True, 我是arrayList2中的元素, 我是arrayList中索引为<span class="number">8</span>的元素 }</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="4">遍历：</font></strong></p>
+<ul>
+<li>当前arrayList中的元素有：————长度为7</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{ <span class="number">999</span>, True, _1.ArrayLists.Test, <span class="number">1</span>, True, 我是arrayList2中的元素, 我是arrayList中索引为<span class="number">8</span>的元素 }</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="3">Count属性：</font></strong></p>
+<ul>
+<li>返回ArrayList的长度，具体存了多少个。</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">{</span><br><span class="line">   Console.WriteLine(arrayList.Count); <span class="comment">// 7  </span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="3">Capacity属性：</font></strong></p>
+<ul>
+<li>返回ArrayList的容量</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">{</span><br><span class="line">   <span class="comment">// 每次长度大于容量时会扩容至当前容量的两倍，避免产生过多的垃圾</span></span><br><span class="line">   Console.WriteLine(arrayList.Capacity); <span class="comment">// 16</span></span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="4">普通for循环遍历：</font></strong></p>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">{</span><br><span class="line">       Console.WriteLine(<span class="string">"**********普通for循环遍历**********"</span>);</span><br><span class="line">       <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; arrayList.Count; i++)</span><br><span class="line">       {</span><br><span class="line">           Console.WriteLine(arrayList[i]);</span><br><span class="line">           <span class="comment">//{ 999, True, _1.ArrayLists.Test, 1, True, 我是arrayList2中的元素, 我是arrayList中索引为8的元素 }</span></span><br><span class="line">       }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="4">迭代器foreach遍历：</font></strong></p>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">{</span><br><span class="line">     Console.WriteLine(<span class="string">"**********迭代器foreach遍历**********"</span>);</span><br><span class="line">       <span class="keyword">foreach</span> (<span class="built_in">object</span> item <span class="keyword">in</span> arrayList)</span><br><span class="line">       {</span><br><span class="line">           Console.WriteLine(item);</span><br><span class="line">           <span class="comment">//{ 999, True, _1.ArrayLists.Test, 1, True, 我是arrayList2中的元素, 我是arrayList中索引为8的元素 }</span></span><br><span class="line">       }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong><font size="4"> <em><strong><font color="#BA55D3">ArrayList</font></strong></em> 的装箱拆箱：</font></strong></p>
+<ul>
+<li><em><strong><font color="#BA55D3">ArrayList</font></strong></em> 本质上是一个可以自动扩容的 <em><strong><font color="#9400D3">object</font></strong></em> 数组，由于用 <em><strong><font color="#9400D3">object</font></strong></em> 来存储数据，自然存在装箱拆箱。当往其中进行值类型存储时就是在装箱，当将值类型元素取出来转换使用时，就存在拆箱。</li>
+</ul>
+<p><strong><font size="3">实例：</font></strong></p>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">{</span><br><span class="line">   <span class="built_in">int</span> k = <span class="number">1</span>;</span><br><span class="line">   arrayList[<span class="number">0</span>] = k; <span class="comment">// 装箱，ArrayList的元素是object类型的，把值类型用引用类型来存 </span></span><br><span class="line">   k = (<span class="built_in">int</span>)arrayList[<span class="number">0</span>]; <span class="comment">// 拆箱，ArrayList的元素是object类型的，把引用类型强转成值类型</span></span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="练习题"><a href="#练习题" class="headerlink" title="练习题"></a>练习题</h2><p><strong><font size="4">1.请简述 <em><strong><font color="#BA55D3">ArrayList</font></strong></em> 和数组的区别</font></strong></p>
+<ul>
+<li><em><strong><font color="#BA55D3">ArrayList</font></strong></em> 本质上是一个 <em><strong><font color="#9400D3">object</font></strong></em> 数组的封装，而数组是一种数据结构，用来存储固定大小的相同类型元素的集合。</li>
+<li><em><strong><font color="#BA55D3">ArrayList</font></strong></em> 可以动态增长和缩减，而数组的长度在创建时就已经确定，不能动态改变。</li>
+<li>数组可以指定存储类型，而 <em><strong><font color="#BA55D3">ArrayList</font></strong></em> 默认存储的是 <em><strong><font color="#9400D3">object</font></strong></em> 类型。</li>
+<li>数组的增删操作需要手动实现，而 <em><strong><font color="#BA55D3">ArrayList</font></strong></em> 提供了方便的API来实现增删操作。</li>
+<li>使用 <em><strong><font color="#BA55D3">ArrayList</font></strong></em> 时可能存在装箱拆箱的问题，而数组不会存在这个问题，除非是 <em><strong><font color="#9400D3">object</font></strong></em> 数组。</li>
+<li>数组的长度属性为Length，而 <em><strong><font color="#BA55D3">ArrayList</font></strong></em> 的长度属性为Count。</li>
+</ul>
+<p><strong><font size="4">2.创建一个背包管理类，使用 <em><strong><font color="#BA55D3">ArrayList</font></strong></em> 存储物品，实现购买物品，卖出物品，显示物品的功能。购买与卖出物品会导致金钱变化</font></strong></p>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 背包管理类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title">BagMgr</span></span><br><span class="line">{</span><br><span class="line">    <span class="comment">// 背包中的物品列表</span></span><br><span class="line">    <span class="keyword">private</span> ArrayList items;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 背包中的金钱</span></span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">int</span> money;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 背包管理类构造函数，初始化背包中的金钱和物品列表</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BagMgr</span>(<span class="params"><span class="built_in">int</span> money</span>)</span></span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">this</span>.money = money;</span><br><span class="line">        items = <span class="keyword">new</span> ArrayList();</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 购买物品</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">BuyItem</span>(<span class="params">Item item</span>)</span></span><br><span class="line">    {</span><br><span class="line">        <span class="comment">// 检测物品信息是否正确</span></span><br><span class="line">        <span class="keyword">if</span> (item.num &lt;= <span class="number">0</span> || item.money &lt; <span class="number">0</span>)</span><br><span class="line">        {</span><br><span class="line">            Console.WriteLine(<span class="string">"请传入正确的物品信息"</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 检查金钱是否足够</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.money &lt; item.money * item.num)</span><br><span class="line">        {</span><br><span class="line">            Console.WriteLine(<span class="string">"买不起，钱不够"</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 扣除金钱</span></span><br><span class="line">        <span class="keyword">this</span>.money -= item.money * item.num;</span><br><span class="line">        Console.WriteLine(<span class="string">"购买{0}{1}个，花费{2}钱"</span>, item.name, item.num, item.money * item.num);</span><br><span class="line">        Console.WriteLine(<span class="string">"剩余{0}元钱"</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 检查背包中是否已有该物品，如有，数量叠加</span></span><br><span class="line">        <span class="keyword">foreach</span> (Item i <span class="keyword">in</span> items)</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">if</span> (i.id == item.id)</span><br><span class="line">            {</span><br><span class="line">                i.num += item.num;</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 若背包中没有该物品，则添加到背包</span></span><br><span class="line">        items.Add(item);</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 卖出物品</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SellItem</span>(<span class="params">Item item</span>)</span></span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; items.Count; i++)</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">if</span> ((items[i] <span class="keyword">as</span> Item).id == item.id)</span><br><span class="line">            {</span><br><span class="line">                <span class="built_in">int</span> num = Math.Min((items[i] <span class="keyword">as</span> Item).num, item.num); <span class="comment">// 实际卖出的数量</span></span><br><span class="line">                <span class="built_in">string</span> name = (items[i] <span class="keyword">as</span> Item).name;</span><br><span class="line">                <span class="built_in">int</span> sellMoney = (<span class="built_in">int</span>)(num * (items[i] <span class="keyword">as</span> Item).money * <span class="number">0.8f</span>); <span class="comment">// 打八折</span></span><br><span class="line">                <span class="keyword">this</span>.money += sellMoney; <span class="comment">// 加到总金币中</span></span><br><span class="line"></span><br><span class="line">                Console.WriteLine(<span class="string">"卖了{0}{1}个，赚了{2}钱"</span>, name, num, sellMoney);</span><br><span class="line">                Console.WriteLine(<span class="string">"目前拥有{0}元钱"</span>, <span class="keyword">this</span>.money);</span><br><span class="line"></span><br><span class="line">                <span class="comment">// 减少背包中物品数量，如果数量为0，则从背包中移除该物品</span></span><br><span class="line">                (items[i] <span class="keyword">as</span> Item).num -= num;</span><br><span class="line">                <span class="keyword">if</span> ((items[i] <span class="keyword">as</span> Item).num == <span class="number">0</span>)</span><br><span class="line">                {</span><br><span class="line">                    items.RemoveAt(i);</span><br><span class="line">                }</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 显示物品</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">ShowItem</span>()</span></span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">foreach</span> (Item item <span class="keyword">in</span> items)</span><br><span class="line">        {</span><br><span class="line">            Console.WriteLine(<span class="string">"有{0}{1}个"</span>, item.name, item.num);</span><br><span class="line">        }</span><br><span class="line">        Console.WriteLine(<span class="string">"当前拥有{0}元钱"</span>, <span class="keyword">this</span>.money);</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">// 物品类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title">Item</span></span><br><span class="line">{</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> id; <span class="comment">// 物品唯一ID</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> money; <span class="comment">// 物品价格</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> name; <span class="comment">// 物品名称</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">int</span> num; <span class="comment">// 物品数量</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 物品类构造函数</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Item</span>(<span class="params"><span class="built_in">int</span> id, <span class="built_in">int</span> money, <span class="built_in">string</span> name, <span class="built_in">int</span> num</span>)</span></span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">        <span class="keyword">this</span>.money = money;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.num = num;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"> <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    {</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">        {</span><br><span class="line"></span><br><span class="line">            BagMgr myBag = <span class="keyword">new</span> BagMgr(<span class="number">99999</span>); <span class="comment">// 初始化背包，金钱99999</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// 创造几个物品</span></span><br><span class="line">            Item item1 = <span class="keyword">new</span> Item(<span class="number">1</span>, <span class="number">10</span>, <span class="string">"红药"</span>, <span class="number">10</span>);</span><br><span class="line">            Item item2 = <span class="keyword">new</span> Item(<span class="number">2</span>, <span class="number">20</span>, <span class="string">"蓝药"</span>, <span class="number">10</span>);</span><br><span class="line">            Item item3 = <span class="keyword">new</span> Item(<span class="number">3</span>, <span class="number">999</span>, <span class="string">"屠龙刀"</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">            myBag.BuyItem(item1); <span class="comment">// 购买红药10个，花费100钱，剩余99899元钱</span></span><br><span class="line">            myBag.BuyItem(item2); <span class="comment">// 购买蓝药10个，花费200钱，剩余99699元钱</span></span><br><span class="line">            myBag.BuyItem(item3); <span class="comment">// 购买屠龙刀1个，花费999钱，剩余98700元钱</span></span><br><span class="line"></span><br><span class="line">            myBag.SellItem(item3); <span class="comment">// 卖了屠龙刀1个，赚了799钱，目前拥有99499元钱</span></span><br><span class="line">            myBag.SellItem(<span class="number">1</span>, <span class="number">1</span>); <span class="comment">// 卖了红药1个，赚了8钱，目前拥有99507元钱</span></span><br><span class="line"></span><br><span class="line">            myBag.SellItem(<span class="number">1</span>, <span class="number">1</span>); <span class="comment">// 卖了红药1个，赚了8钱，目前拥有99515元钱</span></span><br><span class="line">            myBag.SellItem(<span class="number">2</span>, <span class="number">1</span>); <span class="comment">// 卖了蓝药1个，赚了16钱，目前拥有99531元钱</span></span><br><span class="line">            myBag.SellItem(<span class="number">2</span>, <span class="number">1</span>); <span class="comment">// 卖了蓝药1个，赚了16钱，目前拥有99547元钱</span></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<h1 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a><em><strong><font color="#BA55D3">Stack</font></strong></em></h1><h2 id="Stack-详解"><a href="#Stack-详解" class="headerlink" title="Stack 详解"></a><em><strong><font color="#BA55D3">Stack</font></strong></em> 详解</h2><p><strong><font size="4"> <em><strong><font color="#BA55D3">Stack</font></strong></em> 的本质：</font></strong></p>
+<ul>
+<li><em><strong><font color="#BA55D3">Stack</font></strong></em>（栈）是一个C#为我们封装好的类，它的本质也是 <em><strong><font color="#9400D3">object</font></strong></em> []数组，只是封装了特殊的存储规则。</li>
+<li><em><strong><font color="#BA55D3">Stack</font></strong></em> 是栈存储容器，栈是一种先进后出的数据结构，即先存入的数据后获取，后存入的数据先获取。</li>
+</ul>
+<p><strong><font size="4"> <em><strong><font color="#BA55D3">Stack</font></strong></em> 的声明：</font></strong></p>
+<ul>
+<li>需要引用命名空间 using System.Collections; 包含一些集合类。</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Stack stack = <span class="keyword">new</span> Stack();</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="4"> <em><strong><font color="#BA55D3">Stack</font></strong></em> 的增取查改和便利：</font></strong><br><strong><font size="4">增：</font></strong></p>
+<ul>
+<li>当前stack中的元素有：————长度0</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{}</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="3">Push方法：</font></strong></p>
+<ul>
+<li>压栈，把元素往栈中压。</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Test</span></span><br><span class="line">   {</span><br><span class="line"></span><br><span class="line">   }</span><br><span class="line"><span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">   {</span><br><span class="line">       <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">       {</span><br><span class="line"></span><br><span class="line">           stack.Push(<span class="number">1</span>);</span><br><span class="line">           stack.Push(<span class="string">"123"</span>);</span><br><span class="line">           stack.Push(<span class="literal">true</span>);</span><br><span class="line">           stack.Push(<span class="number">1.2f</span>);</span><br><span class="line">           stack.Push(<span class="keyword">new</span> Test());</span><br><span class="line">       }</span><br><span class="line">   }</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>增完之后 <em><strong><font color="#BA55D3">Stack</font></strong></em> 中的元素有：————长度5</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{ <span class="number">1</span>, <span class="number">123</span>, True, <span class="number">1.2f</span>, _2.Stacks.Test }</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="4">取：</font></strong></p>
+<ul>
+<li>当前stack中的元素有：————长度5</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{ <span class="number">1</span>, <span class="number">123</span>, True, <span class="number">1.2f</span>, _2.Stacks.Test }</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>栈中不存在删除的概念，只有取的概念。</p>
+</blockquote>
+<p><strong><font size="3">Pop方法：</font></strong></p>
+<ul>
+<li>弹栈，把元素从栈顶上弹出。</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">{</span><br><span class="line">   <span class="built_in">object</span> v = stack.Pop();</span><br><span class="line">   Console.WriteLine(v); <span class="comment">// _2.Stacks.Test</span></span><br><span class="line">   v = stack.Pop();</span><br><span class="line">   Console.WriteLine(v); <span class="comment">// 1.2f</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>增完之后 <em><strong><font color="#BA55D3">Stack</font></strong></em> 中的元素有：————长度3</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{ <span class="number">1</span>, <span class="number">123</span>, True }</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="4">查：</font></strong></p>
+<ul>
+<li>当前stack中的元素有：————长度3</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{ <span class="number">1</span>, <span class="number">123</span>, True}</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="3">Peek方法：</font></strong></p>
+<ul>
+<li>查看栈顶元素。栈无法查看指定位置的元素，只能查看栈顶元素。</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">{</span><br><span class="line">   <span class="comment">// v = stack.Pop(); 上述变量</span></span><br><span class="line">   <span class="comment">// Peek方法只会查看栈顶元素，不会弹出栈顶元素</span></span><br><span class="line">   v = stack.Peek();</span><br><span class="line">   Console.WriteLine(v); <span class="comment">// True</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="3">Contains方法：</font></strong></p>
+<ul>
+<li>传入元素，查看元素是否存在于栈中。存在返回true，否则返回false。</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">{</span><br><span class="line">    <span class="keyword">if</span> (stack.Contains(<span class="string">"123"</span>))</span><br><span class="line">    {</span><br><span class="line">        Console.WriteLine(<span class="string">"存在123"</span>); <span class="comment">// 存在123</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="4">改：</font></strong></p>
+<ul>
+<li>当前stack中的元素有：————长度3</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{ <span class="number">1</span>, <span class="number">123</span>, True}</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>栈无法改变其中的元素，只能压（存）和弹（取）。如果实在要改，只有清空。</p>
+</blockquote>
+<p><strong><font size="3">Clear方法：</font></strong></p>
+<ul>
+<li>清空栈所有元素。</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">{</span><br><span class="line">   stack.Clear(); <span class="comment">// 会清空栈，为后面方便演示，注释</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong><font size="4">遍历：</font></strong></p>
+<ul>
+<li>当前stack中的元素有：————长度3</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{ <span class="number">1</span>, <span class="number">123</span>, True}</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="3">Count属性：</font></strong></p>
+<ul>
+<li>返回栈的长度。</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">{</span><br><span class="line"> Console.WriteLine(stack.Count); <span class="comment">// 3</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="3">foreach遍历栈：</font></strong></p>
+<ul>
+<li>用foreach遍历 遍历出来的顺序也是从栈顶到栈底。栈不能直接通过for循环遍历，因为栈没有提供索引器通过[]访问。</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">{</span><br><span class="line">    <span class="keyword">foreach</span> (<span class="built_in">object</span> item <span class="keyword">in</span> stack)</span><br><span class="line">    {</span><br><span class="line">        Console.WriteLine(item);</span><br><span class="line">        <span class="comment">// 打印的顺序如下，栈顶到栈底</span></span><br><span class="line">        <span class="comment">// True</span></span><br><span class="line">        <span class="comment">// 123</span></span><br><span class="line">        <span class="comment">// 1</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="3">ToArray方法：</font></strong></p>
+<ul>
+<li>将栈转换为object数组，再用for循环遍历。</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">{</span><br><span class="line">    <span class="comment">// 遍历出来的顺序也是从栈顶到栈底</span></span><br><span class="line">    <span class="built_in">object</span>[] stackToObjectArray = stack.ToArray();</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; stackToObjectArray.Length; i++)</span><br><span class="line">    {</span><br><span class="line">        Console.WriteLine(stackToObjectArray[i]);</span><br><span class="line">        <span class="comment">// 打印的顺序如下，栈顶到栈底</span></span><br><span class="line">        <span class="comment">// True</span></span><br><span class="line">        <span class="comment">// 123</span></span><br><span class="line">        <span class="comment">// 1</span></span><br><span class="line">    }</span><br><span class="line">    Console.WriteLine(stack.Count); <span class="comment">// 栈的长度仍然是3，不被影响</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="3">while循环弹栈：</font></strong></p>
+<ul>
+<li>每次循环弹出栈顶元素。</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line"> {</span><br><span class="line">    <span class="keyword">while</span> (stack.Count &gt; <span class="number">0</span>)</span><br><span class="line">    {</span><br><span class="line">        <span class="built_in">object</span> o = stack.Pop();</span><br><span class="line">        Console.WriteLine(o);</span><br><span class="line">        <span class="comment">// 打印的顺序如下，栈顶到栈底</span></span><br><span class="line">        <span class="comment">// True</span></span><br><span class="line">        <span class="comment">// 123</span></span><br><span class="line">        <span class="comment">// 1</span></span><br><span class="line">    }</span><br><span class="line">    Console.WriteLine(stack.Count); <span class="comment">// 栈的长度变为0，栈空</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="4"> <em><strong><font color="#BA55D3">Stack</font></strong></em> 的装箱拆箱：</font></strong></p>
+<ul>
+<li>由于用 <em><strong><font color="#9400D3">object</font></strong></em> 来存储数据，自然存在装箱拆箱。当往其中进行值类型存储时就是在装箱，当将值类型对象取出来转换使用时，就存在拆箱。</li>
+</ul>
+<h2 id="练习题-1"><a href="#练习题-1" class="headerlink" title="练习题"></a>练习题</h2><p><strong><font size="4">1.请简述栈的存储规则</font></strong></p>
+<ul>
+<li>栈是一种后进先出（LIFO，Last In First Out）的数据结构，即最后进入栈的元素最先被取出。</li>
+<li>栈的存储规则是先进后出，最新的元素总是在栈顶，而最旧的元素在栈底。</li>
+</ul>
+<p><strong><font size="4">2.写一个方法计算任意一个数的二进制数，使用栈结构方式存储，之后打印出来</font></strong></p>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 计算十进制转二进制方法</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">CalculateDecimalToBinary</span>(<span class="params"><span class="built_in">uint</span> num</span>)</span></span><br><span class="line">{</span><br><span class="line">    Console.Write(<span class="string">"{0}的二进制是："</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建一个栈</span></span><br><span class="line">    Stack stack = <span class="keyword">new</span> Stack();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 循环遍历压栈</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="literal">true</span>)</span><br><span class="line">    {</span><br><span class="line">        <span class="comment">// 保存除2的余数</span></span><br><span class="line">        stack.Push(num % <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 除2</span></span><br><span class="line">        num /= <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 如果当前被除数是1的话 存了这个1就跳出while循环</span></span><br><span class="line">        <span class="keyword">if</span> (num == <span class="number">1</span>)</span><br><span class="line">        {</span><br><span class="line">            stack.Push(num);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 循环弹栈，打印转化后的2进制</span></span><br><span class="line">    <span class="keyword">while</span> (stack.Count &gt; <span class="number">0</span>)</span><br><span class="line">    {</span><br><span class="line">        Console.Write(stack.Pop());</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    Console.WriteLine();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//用例子模拟演算</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="doctag">///</span>/10</span></span><br><span class="line">    <span class="comment">//num = 10;</span></span><br><span class="line">    <span class="comment">//stack.Push(num % 2);//0</span></span><br><span class="line">    <span class="comment">//num /= 2;//5</span></span><br><span class="line">    <span class="comment">//stack.Push(num % 2);//1</span></span><br><span class="line">    <span class="comment">//num /= 2;//2</span></span><br><span class="line">    <span class="comment">//stack.Push(num % 2);//0</span></span><br><span class="line">    <span class="comment">//num /= 2;//1</span></span><br><span class="line">    <span class="comment">//if( num == 1 )</span></span><br><span class="line">    <span class="comment">//{</span></span><br><span class="line">    <span class="comment">//    stack.Push(num);//1</span></span><br><span class="line">    <span class="comment">//}</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"> <span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">    {</span><br><span class="line">        <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">        {</span><br><span class="line">            <span class="comment">// 调用示例</span></span><br><span class="line">            CalculateDecimalToBinary(<span class="number">10</span>);  <span class="comment">// 10的二进制是：1010</span></span><br><span class="line">            CalculateDecimalToBinary(<span class="number">2</span>);   <span class="comment">// 2的二进制是：10</span></span><br><span class="line">            CalculateDecimalToBinary(<span class="number">3</span>);   <span class="comment">// 3的二进制是：11</span></span><br><span class="line">            CalculateDecimalToBinary(<span class="number">8</span>);   <span class="comment">// 8的二进制是：1000</span></span><br><span class="line">            CalculateDecimalToBinary(<span class="number">16</span>);  <span class="comment">// 16的二进制是：10000</span></span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<h1 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a><em><strong><font color="#BA55D3">Queue</font></strong></em></h1><h2 id="Queue-详解"><a href="#Queue-详解" class="headerlink" title="Queue 详解"></a><em><strong><font color="#BA55D3">Queue</font></strong></em> 详解</h2><p><strong><font size="4"> <em><strong><font color="#BA55D3">Queue</font></strong></em> 的本质：</font></strong></p>
+<ul>
+<li><em><strong><font color="#BA55D3">Queue</font></strong></em>（队列）是一个C#为我们封装好的类，它的本质也是 <em><strong><font color="#9400D3">object</font></strong></em> []数组，只是封装了特殊的存储规则。</li>
+<li><em><strong><font color="#BA55D3">Queue</font></strong></em> 是队列存储容器，队列是一种先进先出的数据结构，即先存入的数据先获取，后存入的数据后获取。</li>
+</ul>
+<p><strong><font size="4"> <em><strong><font color="#BA55D3">Queue</font></strong></em> 的声明：</font></strong></p>
+<ul>
+<li>需要引用命名空间 System.Collections。</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Queue queue = <span class="keyword">new</span> Queue();</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="4"> <em><strong><font color="#BA55D3">Queue</font></strong></em> 的增取查改和遍历：</font></strong><br><strong><font size="4">增：</font></strong></p>
+<ul>
+<li>当前queue中的元素有：————长度0</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong><font size="3">Enqueue方法：</font></strong></p>
+<ul>
+<li>传入元素直接让元素入队。</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Test</span></span><br><span class="line">   {</span><br><span class="line"></span><br><span class="line">   }</span><br><span class="line"><span class="keyword">class</span> <span class="title">Program</span></span><br><span class="line">   {</span><br><span class="line">       <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">       {</span><br><span class="line">           queue.Enqueue(<span class="number">1</span>);</span><br><span class="line">           queue.Enqueue(<span class="string">"123"</span>);</span><br><span class="line">           queue.Enqueue(<span class="number">1.4f</span>);</span><br><span class="line">           queue.Enqueue(<span class="keyword">new</span> Test());</span><br><span class="line"></span><br><span class="line">       }</span><br><span class="line">   }</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>增完之后queue中的元素有： ————长度4</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{ <span class="number">1</span>, <span class="number">123</span>, <span class="number">1.4f</span>, _3.Queues.Test }</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="4">取：</font></strong></p>
+<ul>
+<li>当前queue中的元素有： ————长度4</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{ <span class="number">1</span>, <span class="number">123</span>, <span class="number">1.4f</span>, _3.Queues.Test }</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>队列中不存在删除的概念，只有取的概念，取出先加入的对象。</p>
+</blockquote>
+<p><strong><font size="3">Dequeue方法：</font></strong></p>
+<ul>
+<li>取出队首元素。</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">{</span><br><span class="line">   <span class="built_in">object</span> v = queue.Dequeue();</span><br><span class="line">   Console.WriteLine(v); <span class="comment">// 1</span></span><br><span class="line">   v = queue.Dequeue();</span><br><span class="line">   Console.WriteLine(v); <span class="comment">// 123</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>取完之后queue中的元素有：————长度2</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{ <span class="number">1.4f</span>, _3.Queues.Test }</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong><font size="4">查：</font></strong></p>
+<ul>
+<li>当前queue中的元素有： ————长度2</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{<span class="number">1.4f</span>, _3.Queues.Test }</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="3">Peek方法：</font></strong></p>
+<ul>
+<li>查看队首元素。队列无法查看指定位置的元素，只能查看队首元素。</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">{</span><br><span class="line">   <span class="comment">// Peek方法只会查看队首元素，不会移除队首元素</span></span><br><span class="line">   v = queue.Peek();</span><br><span class="line">   Console.WriteLine(v); <span class="comment">// 1.4</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="3">Contains方法：</font></strong></p>
+<ul>
+<li>传入元素，查看元素是否存在于队列中。存在返回true，否则返回false。</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">{</span><br><span class="line">   <span class="keyword">if</span> (queue.Contains(<span class="number">1.4f</span>))</span><br><span class="line">   {</span><br><span class="line">       Console.WriteLine(<span class="string">"队列中存在1.4f"</span>); <span class="comment">// 队列中存在1.4f</span></span><br><span class="line">   }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="4">改：</font></strong></p>
+<ul>
+<li>当前queue中的元素有： ————长度2</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{<span class="number">1.4f</span>, _3.Queues.Test }</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>队列无法改变其中的元素，只能进出队列。如果实在要改，只有清空。</p>
+</blockquote>
+<p><strong><font size="3">Clear方法：</font></strong></p>
+<ul>
+<li>清空队列中所有元素。</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">{</span><br><span class="line">    queue.Clear(); <span class="comment">// 会清空队列，为后面方便演示，注释</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="4">遍历：</font></strong></p>
+<ul>
+<li>当前queue中的元素有： ————长度2</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">{<span class="number">1.4f</span>, _3.Queues.Test }</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="3">Count属性：</font></strong></p>
+<ul>
+<li>返回队列的长度。</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">{</span><br><span class="line">    Console.WriteLine(queue.Count); <span class="comment">// 2</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="3">foreach遍历队列：</font></strong></p>
+<ul>
+<li>用foreach遍历遍历出来的顺序也是从队首到队尾。队列不能直接通过for循环遍历，因为队列没有提供索引器通过[]访问。</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">{</span><br><span class="line">    <span class="keyword">foreach</span> (<span class="built_in">object</span> item <span class="keyword">in</span> queue)</span><br><span class="line">    {</span><br><span class="line">        Console.WriteLine(item);</span><br><span class="line">        <span class="comment">// 打印的顺序如下，队首到队尾</span></span><br><span class="line">        <span class="comment">// 1.4</span></span><br><span class="line">        <span class="comment">// _3.Queues.Test.Test</span></span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="3">ToArray方法：</font></strong></p>
+<ul>
+<li>将队列转换为object数组，再用for循环遍历。</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">{</span><br><span class="line">    <span class="comment">// 遍历出来的顺序也是从队首到队尾</span></span><br><span class="line">    <span class="built_in">object</span>[] array = queue.ToArray();</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; array.Length; i++)</span><br><span class="line">    {</span><br><span class="line">        Console.WriteLine(array[i]);</span><br><span class="line">        <span class="comment">// 打印的顺序如下，队首到队尾</span></span><br><span class="line">        <span class="comment">// 1.4</span></span><br><span class="line">        <span class="comment">// _3.Queues.Test.Test</span></span><br><span class="line">    }</span><br><span class="line">        Console.WriteLine(queue.Count); <span class="comment">// 队列的长度仍然是2，不被影响</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p><strong><font size="3">while循环出队：</font></strong></p>
+<ul>
+<li>每次循环弹出队首元素。</li>
+</ul>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">{</span><br><span class="line">    <span class="keyword">while</span> (queue.Count &gt; <span class="number">0</span>)</span><br><span class="line">    {</span><br><span class="line">        <span class="built_in">object</span> o = queue.Dequeue();</span><br><span class="line">        Console.WriteLine(o);</span><br><span class="line">        <span class="comment">// 打印的顺序如下，队首到队尾</span></span><br><span class="line">        <span class="comment">// 1.4</span></span><br><span class="line">        <span class="comment">// Lesson03_Queue.Test</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    Console.WriteLine(queue.Count); <span class="comment">// 队列的长度变为0，队列空</span></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p><strong><font size="4"> <em><strong><font color="#BA55D3">Queue</font></strong></em> 的装箱拆箱：</font></strong></p>
+<ul>
+<li>由于用 <em><strong><font color="#9400D3">object</font></strong></em> 来存储数据，自然存在装箱拆箱。当往其中进行值类型存储时就是在装箱，当将值类型对象取出来转换使用时，就存在拆箱。</li>
+</ul>
+<h2 id="练习题-2"><a href="#练习题-2" class="headerlink" title="练习题"></a>练习题</h2><p><strong><font size="4">1.请简述队列的存储规则</font></strong></p>
+<ul>
+<li>队列是一种先进先出（FIFO，First In First Out）的数据结构，即最先进入队列的元素最先被取出。</li>
+<li>队列的存储规则是先进先出，最先添加的元素在队列的前面，而最后添加的元素在队列的后面。</li>
+</ul>
+<p><strong><font size="4">2.使用队列存储消息，一次性存10条消息，每隔一段时间打印一条消息，控制台打印消息时要有明显停顿感</font></strong></p>
+<figure class="highlight csharp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] <span class="keyword">args</span></span>)</span></span><br><span class="line">{</span><br><span class="line">    <span class="comment">// 新建一个队列，加入一些元素</span></span><br><span class="line">Queue queue = <span class="keyword">new</span> Queue();</span><br><span class="line">queue.Enqueue(<span class="string">"获得10枚金币"</span>);</span><br><span class="line">queue.Enqueue(<span class="string">"获得屠龙刀x1"</span>);</span><br><span class="line">queue.Enqueue(<span class="string">"获得99枚金币"</span>);</span><br><span class="line">queue.Enqueue(<span class="string">"获得血瓶x1"</span>);</span><br><span class="line">queue.Enqueue(<span class="string">"获得85枚金币"</span>);</span><br><span class="line">queue.Enqueue(<span class="string">"获得11枚金币"</span>);</span><br><span class="line">queue.Enqueue(<span class="string">"获得2枚金币"</span>);</span><br><span class="line">queue.Enqueue(<span class="string">"获得91枚金币"</span>);</span><br><span class="line">queue.Enqueue(<span class="string">"获得73枚金币"</span>);</span><br><span class="line">queue.Enqueue(<span class="string">"获得645枚金币"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 模仿贪吃蛇的做法，计算循环次数，达到一定次数后执行逻辑</span></span><br><span class="line"><span class="built_in">int</span> whileLoopTimes = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>)</span><br><span class="line">{</span><br><span class="line">    <span class="comment">// 每当循环次数达到一定值时打印消息</span></span><br><span class="line">    <span class="keyword">if</span> (whileLoopTimes % <span class="number">99999999</span> == <span class="number">0</span>)</span><br><span class="line">    {</span><br><span class="line">        <span class="comment">// 如果队列中有元素，则打印并移除队首元素</span></span><br><span class="line">        <span class="keyword">if</span> (queue.Count &gt; <span class="number">0</span>)</span><br><span class="line">        {</span><br><span class="line">            Console.WriteLine(queue.Dequeue());</span><br><span class="line">        }</span><br><span class="line">        <span class="comment">// 每次打印后，重置循环次数</span></span><br><span class="line">        whileLoopTimes = <span class="number">0</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 添加停顿感，让消息打印的间隔更明显</span></span><br><span class="line">        System.Threading.Thread.Sleep(<span class="number">1000</span>); <span class="comment">// 1000毫秒 = 1秒</span></span><br><span class="line">    }</span><br><span class="line">    ++whileLoopTimes;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<hr>
+<hr>
+<p>C#关键字样式高亮统一：<br>ref：<em><strong><font color="Purple">ref</font></strong></em><br>out：<em><strong><font color="Purple">out</font></strong></em><br>class：<em><strong><font color="#00BFFF">class</font></strong></em><br>operator：<em><strong><font color="orange">operator</font></strong></em><br>namespace：<em><strong><font color="#9400D3">namespace</font></strong></em><br>const：<em><strong><font color="orange">const</font></strong></em><br>static：<em><strong><font color="#4F94CD">static</font></strong></em><br>void：<em><strong><font color="Purple">void</font></strong></em><br>运算符：<font color="#9400D3">+</font><br>is：<em><strong><font color="#B22222">is</font></strong></em><br>as：<em><strong><font color="#B22222">as</font></strong></em><br>null：<em><strong><font color="#CD0000">null</font></strong></em><br>bool：<em><strong><font color="#BA55D3">bool</font></strong></em><br>base：<em><strong><font color="#4169E1">base</font></strong></em><br>this：<em><strong><font color="#4169E1">this</font></strong></em><br>object：<em><strong><font color="#9400D3">object</font></strong></em><br>sealed：<em><strong><font color="#4F94CD">sealed</font></strong></em><br>virtual：<em><strong><font color="#4F94CD">virtual</font></strong></em><br>override：<em><strong><font color="#4F94CD">override</font></strong></em><br>abstract：<em><strong><font color="#4F94CD">abstract</font></strong></em><br>interface：<em><strong><font color="#00BFFF">interface</font></strong></em><br>partial：<em><strong><font color="#4F94CD">partial</font></strong></em><br>public：<em><strong><font color="#9400D3">public</font></strong></em><br>protected：<em><strong><font color="#9400D3">protected</font></strong></em><br>internal：<em><strong><font color="#9400D3">internal</font></strong></em><br>using：<em><strong><font color="#9400D3">using</font></strong></em><br>string：<em><strong><font color="#BA55D3">string</font></strong></em><br>String：<em><strong><font color="#BA55D3">String</font></strong></em><br>char：<em><strong><font color="#BA55D3">char</font></strong></em><br>StringBuilder：<em><strong><font color="#BA55D3">StringBuilder</font></strong></em><br>ArrayList：<em><strong><font color="#BA55D3">ArrayList</font></strong></em><br>Stack：<em><strong><font color="#BA55D3">Stack</font></strong></em><br>Queue：<em><strong><font color="#BA55D3">Queue</font></strong></em></p>
+<p>C#文字样式统一：<br><strong><font color="#EECBAD">颜色</font></strong><br><em><strong><font color="#6B8E23">颜色</font></strong></em><br><em><strong><font color="#F4A460">颜色</font></strong></em></p>
+<hr>
+<p> <em>你阿里</em>//斜体<br> <strong>你阿里</strong>//粗体<br> <em><strong>你阿里</strong></em>//斜体加粗体<br>//灰色背景显示<br><code>C#基础的知识</code></p>
+<p>//字体大小<br><font size="4"><br>222<br></font><br>//表格</p>
+<table>
+<thead>
+<tr>
+<th>列1</th>
+<th>列2</th>
+<th>列3</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>第1行</td>
+<td>12</td>
+<td>13</td>
+</tr>
+<tr>
+<td>第2行</td>
+<td>22</td>
+<td>23</td>
+</tr>
+<tr>
+<td>第3行</td>
+<td>32</td>
+<td>33</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>列1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>第1行1111111111</td>
+</tr>
+<tr>
+<td>第2行 111111111111111</td>
+</tr>
+<tr>
+<td>第3行111111111111111111111111</td>
+</tr>
+</tbody></table>
+<p>//文字颜色<br><font color="red"> 55555</font><br>//删除线<br><del>ch111111</del></p>
+<blockquote>
+<p>11111111111111111111111</p>
+<blockquote>
+<p>22222222222222222222222222</p>
+</blockquote>
+</blockquote>
+<p>//文字背景颜色</p>
+<table><tbody><tr><td bgcolor="#DCDCDC">背景色的设置是按照十六进制颜色值：#FFFF00</td></tr></tbody></table>
+<table><tbody><tr><td bgcolor="#D1EEEE">背景色的设置是按照十六进制颜色值：#D1EEEE</td></tr></tbody></table>
+<table><tbody><tr><td bgcolor="#C0FF3E">背景色的设置是按照十六进制颜色值：#C0FF3E</td></tr></tbody></table>
+<table><tbody><tr><td bgcolor="#54FF9F">背景色的设置是按照十六进制颜色值：#54FF9F</td></tr></tbody></table>
+ </body></html>
+</article>
+    
+    
+
+</div>
+<div id="post-next-prev" class="row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-blog-card trm-scroll-animation">
+        <a href="/Test.github.io/2025/01/07/C/" class="trm-cover-frame trm-anima-link">
+            
+            
+                <img alt="cover" class="no-fancybox" src="/Test.github.io/img/block.jpg">
+            
+        </a>
+        
+        <div class="trm-card-descr">
+            <div class="trm-label trm-category trm-mb-20">
+                <a href=" /Test.github.io/categories/Unity/">
+                    Unity
+                </a>
+            </div>
+            <h5>
+                <a href="/Test.github.io/2025/01/07/C/" class="trm-anima-link">
+                    C#入门
+                </a>
+            </h5>
+            <div class="trm-divider trm-mb-20 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>25/01/07</li>
+                <li>14:24</li>
+                
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-scroll-animation">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v7.3.0
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                主题 - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.1.0-beta.2
+            </span>
+        </div>
+      
+
+     
+
+     
+</footer>
+ 
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="post-toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a rel="nofollow" class="toc-link" href="#C-进阶语法知识概述"  data-scroll-to="#C-进阶语法知识概述"><span class="toc-text">C#进阶语法知识概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#TOOD缺少"  data-scroll-to="#TOOD缺少"><span class="toc-text">TOOD缺少</span></a></li></ol></li><li class="toc-item toc-level-1"><a rel="nofollow" class="toc-link" href="#ArrayList"  data-scroll-to="#ArrayList"><span class="toc-text">ArrayList</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#ArrayList-详解"  data-scroll-to="#ArrayList-详解"><span class="toc-text">ArrayList 详解</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#练习题"  data-scroll-to="#练习题"><span class="toc-text">练习题</span></a></li></ol></li><li class="toc-item toc-level-1"><a rel="nofollow" class="toc-link" href="#Stack"  data-scroll-to="#Stack"><span class="toc-text">Stack</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#Stack-详解"  data-scroll-to="#Stack-详解"><span class="toc-text">Stack 详解</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#练习题-1"  data-scroll-to="#练习题-1"><span class="toc-text">练习题</span></a></li></ol></li><li class="toc-item toc-level-1"><a rel="nofollow" class="toc-link" href="#Queue"  data-scroll-to="#Queue"><span class="toc-text">Queue</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#Queue-详解"  data-scroll-to="#Queue-详解"><span class="toc-text">Queue 详解</span></a></li><li class="toc-item toc-level-2"><a rel="nofollow" class="toc-link" href="#练习题-2"  data-scroll-to="#练习题-2"><span class="toc-text">练习题</span></a></li></ol></li></ol>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="目录">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="单栏和双栏切换" onclick="asyncFun.switchSingleColumn()">
+            <i class="iconfont fas fa-arrows-alt-h"></i>
+        </div>
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/Test.github.io/js/main.js?v=2.1.0-beta.2"></script>
+
+</body>
+
+</html>
